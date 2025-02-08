@@ -1,2 +1,6 @@
-titolo,nomeautore,autore,nometraduttore,traduttore,edizione,url,idpub
-prova,autoreprova,autoreprova-slag,traduttoreprova,traduttoreprova-slag,2029,https://docs.google.com/spreadsheets/d/100ScaecNIH04C3hVGDTbFnztnRLbrp0VURPGowIJOrA/edit?gid=0#gid=0,363728
+titolo,nomeautore,autore,nometraduttore,traduttore,edizione,url,idpub,idAutore
+"prova","autoreprova","autoreprova-slag","traduttoreprova","traduttoreprova-slag",2029,"https://exemple.com","363728","1"
+"Il nome della rosa","Umberto Eco","Umberto-eco","","",1980,"https://example.com/il-nome-della-rosa","100001","2"
+"1984","George Orwell","George-Orwell","Stefano Manferlotti","Stefano-Manferlotti",1949,"https://example.com/1984","100002" ,"3"
+"Orgoglio e Pregiudizio","Jane Austen","Jane-Austen","Giovanna Scocchera","Giovanna-Scocchera",1813,"https://example.com/orgoglio-pregiudizio","100003", "4" 
+    

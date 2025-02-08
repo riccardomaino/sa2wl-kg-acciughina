@@ -11,26 +11,80 @@
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix xyz:    <http://sparql.xyz/facade-x/data/> .
 
+urb:1813  rdf:type           urb:Edition ;
+        rdfs:label           "Orgoglio e Pregiudizio" ;
+        frbr:isEmbodimentOf  urw:Jane-Austen .
+
+urb:100003  rdf:type         frbr:Publication ;
+        urb:hasParticipant   urb:translator , urb:author , urw:Giovanna-Scocchera , urw:Jane-Austen , urb:1813 ;
+        prov:wasDerivedFrom  schema:ibs .
+
+schema:ibs  schema:url  "https://example.com/1984" , "https://exemple.com" , "https://example.com/orgoglio-pregiudizio" , "https://example.com/il-nome-della-rosa" .
+
+urw:George-Orwell  rdf:type  urw:Person ;
+        rdfs:label  "George Orwell" ;
+        dul:role    urb:author .
+
+urb:100002  rdf:type         frbr:Publication ;
+        urb:hasParticipant   urb:translator , urb:author , urw:Stefano-Manferlotti , urw:George-Orwell , urb:1949 ;
+        prov:wasDerivedFrom  schema:ibs .
+
+urb:363728  rdf:type         frbr:Publication ;
+        urb:hasParticipant   urb:translator , urb:author , urw:traduttoreprova-slag , urw:autoreprova-slag , urb:2029 ;
+        prov:wasDerivedFrom  schema:ibs .
+
+urb:100001  rdf:type         frbr:Publication ;
+        urb:hasParticipant   urb:translator , urb:author , urw: , urw:Umberto-eco , urb:1980 ;
+        prov:wasDerivedFrom  schema:ibs .
+
+urw:Stefano-Manferlotti
+        rdf:type    urw:Person ;
+        rdfs:label  "Stefano Manferlotti" ;
+        dul:role    urb:translator .
+
+urb:3   rdf:type              frbr:Expression ;
+        prov:wasAttributedTo  urw:George-Orwell .
+
+urb:1949  rdf:type           urb:Edition ;
+        rdfs:label           "1984" ;
+        frbr:isEmbodimentOf  urw:George-Orwell .
+
 urw:autoreprova-slag  rdf:type  urw:Person ;
         rdfs:label  "autoreprova" ;
         dul:role    urb:author .
 
-urb:prova  rdf:type          urb:Edition ;
+urb:1980  rdf:type           urb:Edition ;
+        rdfs:label           "Il nome della rosa" ;
+        frbr:isEmbodimentOf  urw:Umberto-eco .
+
+urb:2   rdf:type              frbr:Expression ;
+        prov:wasAttributedTo  urw:Umberto-eco .
+
+urb:2029  rdf:type           urb:Edition ;
         rdfs:label           "prova" ;
-        frbr:isEmbodimentOf  "autoreprova" .
-
-urb:363728  rdf:type         frbr:Publication ;
-        urb:hasParticipant   "traduttoreprova-slag" , "autoreprova-slag" ;
-        urb:hasParticipant   urb:prova ;
-        prov:wasDerivedFrom  schema:ibs .
-
-urb:autoreprova-slag  rdf:type  frbr:Expression ;
-        prov:wasAttributedTo  "autoreprova-slag" .
-
-schema:ibs  rdf:type  frbr:Source ;
-        schema:url  "https://docs.google.com/spreadsheets/d/100ScaecNIH04C3hVGDTbFnztnRLbrp0VURPGowIJOrA/edit?gid=0#gid=0" .
+        frbr:isEmbodimentOf  urw:autoreprova-slag .
 
 urw:traduttoreprova-slag
         rdf:type    urw:Person ;
         rdfs:label  "traduttoreprova" ;
+        dul:role    urb:translator .
+
+urw:Giovanna-Scocchera
+        rdf:type    urw:Person ;
+        rdfs:label  "Giovanna Scocchera" ;
+        dul:role    urb:translator .
+
+urw:Umberto-eco  rdf:type  urw:Person ;
+        rdfs:label  "Umberto Eco" ;
+        dul:role    urb:author .
+
+urw:Jane-Austen  rdf:type  urw:Person ;
+        rdfs:label  "Jane Austen" ;
+        dul:role    urb:author .
+
+urb:1   rdf:type              frbr:Expression ;
+        prov:wasAttributedTo  urw:autoreprova-slag .
+
+urw:    rdf:type    urw:Person ;
+        rdfs:label  "" ;
         dul:role    urb:translator .
