@@ -1,4 +1,5 @@
 @prefix dul:    <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix frbr:   <http://purl.org/vocab/frbr/core#> .
 @prefix fx:     <http://sparql.xyz/facade-x/ns/> .
 @prefix prov:   <http://www.w3.org/ns/prov#> .
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -9,3 +10,27 @@
 @prefix xml:    <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix xyz:    <http://sparql.xyz/facade-x/data/> .
+
+urw:autoreprova-slag  rdf:type  urw:Person ;
+        rdfs:label  "autoreprova" ;
+        dul:role    urb:author .
+
+urb:prova  rdf:type          urb:Edition ;
+        rdfs:label           "prova" ;
+        frbr:isEmbodimentOf  "autoreprova" .
+
+urb:363728  rdf:type         frbr:Publication ;
+        urb:hasParticipant   "traduttoreprova-slag" , "autoreprova-slag" ;
+        urb:hasParticipant   urb:prova ;
+        prov:wasDerivedFrom  schema:ibs .
+
+urb:autoreprova-slag  rdf:type  frbr:Expression ;
+        prov:wasAttributedTo  "autoreprova-slag" .
+
+schema:ibs  rdf:type  frbr:Source ;
+        schema:url  "https://docs.google.com/spreadsheets/d/100ScaecNIH04C3hVGDTbFnztnRLbrp0VURPGowIJOrA/edit?gid=0#gid=0" .
+
+urw:traduttoreprova-slag
+        rdf:type    urw:Person ;
+        rdfs:label  "traduttoreprova" ;
+        dul:role    urb:translator .

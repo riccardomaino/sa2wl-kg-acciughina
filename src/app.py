@@ -11,9 +11,9 @@ def execute_sparql_anything_query(query_path, output_ttl_kg_path):
     :param query_path: Path to the SPARQL Anything query file.
     :param output_ttl_path: Path to save the TTL output.
     """
+    
     engine = sa.SparqlAnything()
-    engine.run(query=query_path,output=output_ttl_kg_path,format='ttl')
-    print(f"TTL Knowledge Graph output saved to: {output_ttl_kg_path}")
+    engine.run(query=query_path, output=output_ttl_kg_path, format='ttl')
 
 def visualize_knowledge_graph(ttl_path, output_image_path):
     """
@@ -44,9 +44,9 @@ def visualize_knowledge_graph(ttl_path, output_image_path):
     plt.close()
 
 def main():
-    query_path = "./queries/work_roles.sparql"      # Path to your SPARQL Anything query
-    output_ttl_kg_path = "./output/work_roles.ttl"     # Path to save the TTL output
-    output_image_path = "./img/work_roles_kg.png"   # Path to save the graph visualization
+    query_path = "C:\\Users\\Flavi\\modsem\\sa2wl-kg-acciughina\\queries\\work_roles.sparql"  # Path to your SPARQL Anything query
+    output_ttl_kg_path = "C:\\Users\\Flavi\\modsem\\sa2wl-kg-acciughina\\output\\work_roles.ttl" # Path to save the TTL output
+    output_image_path = "C:\\Users\\Flavi\\modsem\\sa2wl-kg-acciughina\\img\\work_roles_kg.png"  # Path to save the graph visualization
 
     # Ensure the output directory exists
     os.makedirs(os.path.dirname(output_ttl_kg_path), exist_ok=True)
