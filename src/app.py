@@ -44,9 +44,9 @@ def visualize_knowledge_graph(ttl_path, output_image_path):
     plt.close()
 
 def main():
-    query_path = "C:\\Users\\Flavi\\modsem\\sa2wl-kg-acciughina\\queries\\work_roles.sparql"  # Path to your SPARQL Anything query
-    output_ttl_kg_path = "C:\\Users\\Flavi\\modsem\\sa2wl-kg-acciughina\\output\\work_roles.ttl" # Path to save the TTL output
-    output_image_path = "C:\\Users\\Flavi\\modsem\\sa2wl-kg-acciughina\\img\\work_roles_kg.png"  # Path to save the graph visualization
+    query_path = "./queries/work_roles.sparql"  # Path to your SPARQL Anything query
+    output_ttl_kg_path = "./output/work_roles.ttl" # Path to save the TTL output
+    output_image_path = "./img/work_roles_kg.png"  # Path to save the graph visualization
 
     # Ensure the output directory exists
     os.makedirs(os.path.dirname(output_ttl_kg_path), exist_ok=True)

@@ -35,7 +35,7 @@ CONSTRUCT {
 
 }
 WHERE {
-    SERVICE <x-sparql-anything:csv.headers=true,location=C:/Users/Flavi/modsem/sa2wl-kg-acciughina/data/works_role.csv>
+    SERVICE <x-sparql-anything:csv.headers=true,location=./data/works_role_data.csv>
     {
       [] xyz:autore ?autore ;
             xyz:edizione ?edizione ;
