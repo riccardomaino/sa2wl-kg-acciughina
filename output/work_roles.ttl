@@ -19,6 +19,11 @@ urb:100003  rdf:type         frbr:Publication ;
         urb:hasParticipant   urb:translator , urb:author , urw:Giovanna-Scocchera , urw:Jane-Austen , urb:1813 ;
         prov:wasDerivedFrom  schema:ibs .
 
+urw:translator_inesistente
+        rdf:type    urb:NonIdentifiedTranslator ;
+        rdfs:label  "Traduttore inesistente" ;
+        dul:role    urb:translator .
+
 schema:ibs  schema:url  "https://example.com/1984" , "https://exemple.com" , "https://example.com/orgoglio-pregiudizio" , "https://example.com/il-nome-della-rosa" .
 
 urw:George-Orwell  rdf:type  urw:Person ;
@@ -34,7 +39,7 @@ urb:363728  rdf:type         frbr:Publication ;
         prov:wasDerivedFrom  schema:ibs .
 
 urb:100001  rdf:type         frbr:Publication ;
-        urb:hasParticipant   urb:translator , urb:author , urw: , urw:Umberto-eco , urb:1980 ;
+        urb:hasParticipant   urb:translator , urb:author , urw:translator_inesistente , urw:Umberto-eco , urb:1980 ;
         prov:wasDerivedFrom  schema:ibs .
 
 urw:Stefano-Manferlotti
@@ -84,7 +89,3 @@ urw:Jane-Austen  rdf:type  urw:Person ;
 
 urb:1   rdf:type              frbr:Expression ;
         prov:wasAttributedTo  urw:autoreprova-slag .
-
-urw:    rdf:type    urw:Person ;
-        rdfs:label  "" ;
-        dul:role    urb:translator .

@@ -27,8 +27,8 @@ CONSTRUCT {
       rdfs:label ?nomeautore;
       dul:role urb:author .
 
-  ?translator a urw:Person;
-      rdfs:label ?nometraduttore;
+  ?translator a ?translatortype;
+      rdfs:label ?translatorlabel;
       dul:role urb:translator .
 
   ?source schema:url ?url .
@@ -53,6 +53,14 @@ WHERE {
     BIND (IRI(CONCAT(STR(urb:), ?id)) AS ?pub ) .
     BIND (IRI(CONCAT(STR(urw:), ?autore)) AS ?author ) .
     BIND (IRI(CONCAT(STR(schema:), "ibs")) AS ?source ) .
-    BIND (IRI(CONCAT(STR(urw:), ?traduttore)) AS ?translator ) .
+
+    # Label del traduttore predefinito se non disponibile
+    BIND (IF(STRLEN(?nometraduttore) > 0, ?nometraduttore, "Traduttore inesistente") AS ?translatorlabel) .
     
+    # IRI del traduttore predefinito se manca il codice del traduttore
+    BIND (IF(STRLEN(?traduttore) > 0, IRI(CONCAT(STR(urw:), ?traduttore)), urw:translator_inesistente) AS ?translator) .
+
+    # Condizione per definire dinamicamente il tipo del translator
+    BIND (IF(STRLEN(?traduttore) > 0, urw:Person, urb:NonIdentifiedTranslator) AS ?translatortype)
+     
 }
