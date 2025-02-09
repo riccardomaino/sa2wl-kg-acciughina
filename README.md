@@ -20,4 +20,4 @@ urb:wikidata  schema:url  "https://www.wikidata.org/wiki/Q2427544" .<br>
 
 
 ### Graphical representation of the KG snapshot 
-![The snapshot of a pattern that represents the work roles](./img/author_demographic.png)
+![The snapshot of a pattern that represents the work roles](./img/work_roles_kg.png)
