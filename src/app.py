@@ -3,6 +3,38 @@ import matplotlib.pyplot as plt
 import pysparql_anything as sa
 import rdflib
 import os
+from urllib.parse import urlparse
+
+PREFIX_DICT = {
+    "example": "https://example.com/",
+    "fx": "http://sparql.xyz/facade-x/ns/",
+    "xyx": "http://sparql.xyz/facade-x/data/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "urb": "http://purl.archive.org/urbooks#",
+    "urw": "http://purl.archive.org/urwriters#",
+    "schema": "http://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dul": "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#",
+    "xml": "http://www.w3.org/XML/1998/namespace",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "frbr": "http://purl.org/vocab/frbr/core#"
+}
+
+
+def adjust_string(iri: str) -> str:
+    """
+    A function to adjust the IRI string to a more readable format. Replaces the
+    IRI base with the prefix if available.
+
+    :param iri: The IRI string to adjust.
+
+    :return: The adjusted IRI string
+    """
+    for prefix, namespace in PREFIX_DICT.items():
+        if iri.startswith(namespace):
+            return iri.replace(namespace, f"{prefix}:") # Replace IRI base with prefix and return
+    return iri
 
 def execute_sparql_anything_query(query_path, output_ttl_kg_path):
     """
@@ -29,12 +61,15 @@ def visualize_knowledge_graph(ttl_path, output_image_path):
     # Create a NetworkX graph
     G = nx.DiGraph()
     for subj, pred, obj in graph:
+        subj = adjust_string(str(subj))
+        pred = adjust_string(str(pred))
+        obj = adjust_string(str(obj))
         G.add_edge(subj, obj, label=pred)
 
     # Draw the graph
-    plt.figure(figsize=(12, 12))
-    pos = nx.spring_layout(G)
-    nx.draw(G, pos, with_labels=True, node_size=3000, node_color="lightblue", font_size=10, font_weight="bold")
+    plt.figure(figsize=(50, 50))
+    pos = nx.spring_layout(G, k=0.5, iterations=50)
+    nx.draw(G, pos, with_labels=True, node_size=2000, node_color="lightblue", font_size=8, font_weight="bold")
     edge_labels = nx.get_edge_attributes(G, 'label')
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=8)
 
